@@ -1,23 +1,15 @@
 public class Main {
   public static void main(String[] args) {
-    System.out.println("Hello, World!");
-
-    int[] A = { 1, 2, 3, 4, 5 }; // Example array
-    Solution solution = new Solution();
-    int sum = solution.solution(A);
-    System.out.println("Sum of array: " + sum);
-  }
-}
-
-final class Solution {
-  public int solution(int[] A) {
-    return recursiveSum(A, A.length - 1);
+    int x = 3;
+    fun1(x);
   }
 
-  private int recursiveSum(int[] A, int index) {
-    if (index < 0) {
-      return 0; // Base case: when the array is fully traversed
+  public static void fun1(int x) {
+    System.out.println(x); // Print the current value of x
+    if (x > 0) { // Base condition to stop recursion
+      fun1(x - 1);
     }
-    return A[index] + recursiveSum(A, index - 1); // Recursive case
+    System.out.println(x);
   }
+
 }

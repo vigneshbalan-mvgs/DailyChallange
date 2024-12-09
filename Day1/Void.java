@@ -1,4 +1,4 @@
-public class Main {
+public class Void {
   public static void main(String[] args) {
     int x = 5;
     System.out.println("using recursion");

@@ -18,7 +18,6 @@ public class StackVariable {
       a++; // Increment the static variable
       System.out.printf(" a is %d\n", a);
       System.out.printf(" n is %d\n", n);
-      fun1(n - 1);
       return fun1(n - 1) + a; // Add the current value of a
     }
     return 0; // Base case: return 0

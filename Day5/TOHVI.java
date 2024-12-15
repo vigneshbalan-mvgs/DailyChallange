@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class TOH {
+public class TOHVI {
   public static void main(String[] args) throws InterruptedException {
     // Number of disks
     int n = 10;

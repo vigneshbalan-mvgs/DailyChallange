@@ -4,6 +4,9 @@ public class Set {
 
     get(a, 0, 12);
     max(a);
+    min(a);
+    sum(a);
+    Avg(a);
   }
 
   public static void get(int a[], int x, int k) {
@@ -13,9 +16,6 @@ public class Set {
     } else {
       a[x] = k;
       System.out.println("Element at index " + x + " is " + a[x]);
-      for (int i = 0; i < a.length; i++) {
-        System.out.print(a[i] + " ");
-      }
     }
   }
 
@@ -27,6 +27,33 @@ public class Set {
       }
     }
     System.out.println("The max is " + max);
+  }
+
+  public static void min(int a[]) {
+    int min = a[0];
+    for (int i = 0; i < a.length; i++) {
+      if (a[i] < min) {
+        min = a[i];
+      }
+    }
+    System.out.println("The min is " + min);
+  }
+
+  public static void sum(int a[]) {
+    int sum = 0;
+    for (int i = 0; i < a.length; i++) {
+      sum = sum + a[i];
+    }
+    System.out.println("The sum is " + sum);
+  }
+
+  public static void Avg(int a[]) {
+    int avg = 0;
+    for (int i = 0; i < a.length; i++) {
+      avg = avg + a[i];
+    }
+    avg = avg / a.length;
+    System.out.println("The avg is " + avg);
   }
 
 }

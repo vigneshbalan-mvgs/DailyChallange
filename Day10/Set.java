@@ -3,15 +3,7 @@ public class Set {
     int a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
     get(a, 0, 12);
-    get(a, 1, 20);
-    get(a, 2, 120);
-    get(a, 3, 12);
-    get(a, 4, 12);
-    get(a, 5, 12);
-    get(a, 6, 12);
-    get(a, 7, 12);
-    get(a, 8, 12);
-
+    max(a);
   }
 
   public static void get(int a[], int x, int k) {
@@ -26,4 +18,15 @@ public class Set {
       }
     }
   }
+
+  public static void max(int a[]) {
+    int max = a[0];
+    for (int i = 0; i < a.length; i++) {
+      if (a[i] > max) {
+        max = a[i];
+      }
+    }
+    System.out.println("The max is " + max);
+  }
+
 }

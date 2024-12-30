@@ -1,7 +1,8 @@
 public class FindInArr {
   public static void main(String[] args) {
     int a[] = { 1, 2, 3, 4, 5, 6, 7 };
-    find(a);
+    // find(a);
+    find1(a);
   }
 
   public static void find(int a[]) {
@@ -23,4 +24,13 @@ public class FindInArr {
 
     System.out.println("Missing number is " + result);
   }
+
+  public static void find1(int a[]) {
+    // its a different like starting element minus 0;
+    int start = a[0];
+    int end = a[a.length - 1];
+    System.out.println(start);
+    System.out.println(end);
+  }
+
 }

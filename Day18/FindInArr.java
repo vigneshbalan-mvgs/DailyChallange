@@ -4,6 +4,8 @@ public class FindInArr {
     int b[] = { 1, 2, 3, 5, 6, 7 };
     find(a);
     find1(b);
+    find1(a);
+    find(b);
   }
 
   public static void find1(int a[]) {

@@ -1,11 +1,12 @@
 public class FindInArr {
   public static void main(String[] args) {
-    int a[] = { 1, 2, 3, 4, 5, 6, 7 };
-    // find(a);
-    find1(a);
+    int a[] = { 3, 5, 6, 7 };
+    int b[] = { 1, 2, 3, 5, 6, 7 };
+    find(a);
+    find1(b);
   }
 
-  public static void find(int a[]) {
+  public static void find1(int a[]) {
     int sum = 0;
     int max = 0; // Variable to find the largest number in the array
 
@@ -25,12 +26,14 @@ public class FindInArr {
     System.out.println("Missing number is " + result);
   }
 
-  public static void find1(int a[]) {
-    // its a different like starting element minus 0;
-    int start = a[0];
-    int end = a[a.length - 1];
-    System.out.println(start);
-    System.out.println(end);
-  }
+  public static void find(int a[]) {
+    int start = a[0]; // The first element of the array
 
+    for (int index = 0; index < a.length; index++) {
+      if (a[index] - index != start) {
+        System.out.println("Missing number is " + (index + start));
+        break;
+      }
+    }
+  }
 }

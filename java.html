@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enhanced Core Java Revision</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    pre {
+      background-color: #ecf0f1;
+      padding: 10px;
+      border: 1px solid #bdc3c7;
+      overflow-x: auto;
+    }
+    code {
+      font-family: "Courier New", Courier, monospace;
+    }
+    .section {
+      margin-bottom: 30px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .example {
+      margin: 15px 0;
+      border-left: 4px solid #3498db;
+      padding-left: 10px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Enhanced Core Java Revision</h1>
+
+  <!-- Java Fundamentals -->
+  <div class="section" id="java-fundamentals">
+    <h2>Java Fundamentals</h2>
+    <p>
+      Java is a strongly typed, object-oriented language. Here you learn about data types, variables, control flow, and basic programming constructs.
+    </p>
+    <h3>Data Types, Variables &amp; Operators</h3>
+    <p>
+      Java supports primitive data types (such as <code>int</code>, <code>double</code>, <code>char</code>, etc.) and reference types (like objects). Variables store data and operators perform arithmetic, logical, and relational operations.
+    </p>
+    <div class="example">
+      <pre><code>// Declaring variables and using arithmetic operators
+int a = 10;
+int b = 20;
+int sum = a + b;
+System.out.println("Sum: " + sum); // Output: Sum: 30
+
+// Using relational and logical operators
+boolean isEqual = (a == b);
+boolean result = (a < b) && (sum > 25);
+System.out.println("isEqual: " + isEqual);
+System.out.println("Result: " + result);</code></pre>
+    </div>
+
+    <h3>Control Flow</h3>
+    <p>
+      Control flow constructs such as <code>if-else</code>, loops (<code>for</code>, <code>while</code>, <code>do-while</code>), and <code>switch</code> statements allow you to control the execution path.
+    </p>
+    <div class="example">
+      <pre><code>// if-else example
+int score = 75;
+if(score >= 90) {
+    System.out.println("Grade: A");
+} else if(score >= 80) {
+    System.out.println("Grade: B");
+} else if(score >= 70) {
+    System.out.println("Grade: C");
+} else {
+    System.out.println("Grade: D or F");
+}
+
+// Loop example: for loop
+for (int i = 1; i <= 5; i++) {
+    System.out.println("Iteration: " + i);
+}
+
+// switch-case example
+int day = 4;
+switch(day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    case 3:
+        System.out.println("Wednesday");
+        break;
+    default:
+        System.out.println("Other day");
+}</code></pre>
+    </div>
+
+    <h3>Functions, Scope &amp; Java Memory Model</h3>
+    <p>
+      Methods are functions defined within classes. The scope of a variable/method is defined by access modifiers (<code>public</code>, <code>private</code>, etc.). The Java Memory Model distinguishes between the stack (for local variables and method calls) and the heap (for dynamically allocated objects).
+    </p>
+    <div class="example">
+      <pre><code>// Example of a method with proper scope
+public class Calculator {
+    // Instance method
+    public int add(int x, int y) {
+        return x + y;
+    }
+    
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        System.out.println("Addition: " + calc.add(5, 7));
+    }
+}
+
+// Memory model note: Primitive types like int are stored in the stack (if local) while objects created with 'new' reside in the heap.
+</code></pre>
+    </div>
+  </div>
+
+  <!-- OOPs (Object-Oriented Programming) -->
+  <div class="section" id="oops">
+    <h2>OOPs (Object-Oriented Programming)</h2>
+    <p>
+      OOP is the cornerstone of Java. It involves designing your program using objects and classes, making use of concepts like inheritance, encapsulation, polymorphism, and abstraction.
+    </p>
+    <h3>Classes, Objects &amp; Constructors</h3>
+    <div class="example">
+      <pre><code>// Defining a class with a constructor
+class Person {
+    String name;
+    int age;
+
+    // Constructor to initialize a new object
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+public class TestPerson {
+    public static void main(String[] args) {
+        Person person = new Person("Alice", 30);
+        person.display(); // Output: Name: Alice, Age: 30
+    }
+}</code></pre>
+    </div>
+
+    <h3>Encapsulation, Inheritance &amp; Polymorphism</h3>
+    <p>
+      Encapsulation hides the internal state of an object and only exposes a controlled interface. Inheritance allows classes to derive properties and behaviors from other classes, while polymorphism lets you use a superclass reference to refer to a subclass object.
+    </p>
+    <div class="example">
+      <pre><code>// Example: Inheritance and polymorphism
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class Zoo {
+    public static void main(String[] args) {
+        Animal animal1 = new Dog();
+        Animal animal2 = new Cat();
+        animal1.sound(); // Output: Dog barks
+        animal2.sound(); // Output: Cat meows
+    }
+}</code></pre>
+    </div>
+
+    <h3>Method Overloading &amp; Overriding</h3>
+    <p>
+      Overloading lets you define multiple methods with the same name but different parameters, while overriding allows a subclass to provide a specific implementation of a method defined in its superclass.
+    </p>
+    <div class="example">
+      <pre><code>// Method Overloading example
+class MathOperations {
+    int add(int a, int b) {
+        return a + b;
+    }
+    double add(double a, double b) {
+        return a + b;
+    }
+    
+    public static void main(String[] args) {
+        MathOperations m = new MathOperations();
+        System.out.println("Int addition: " + m.add(5, 10));
+        System.out.println("Double addition: " + m.add(5.5, 10.5));
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <!-- Collections Framework -->
+  <div class="section" id="collections">
+    <h2>Collections Framework</h2>
+    <p>
+      The Collections Framework provides a set of interfaces and classes to store and manipulate groups of objects efficiently.
+    </p>
+    <h3>List, Set &amp; Map</h3>
+    <div class="example">
+      <pre><code>// List example with ArrayList
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListDemo {
+    public static void main(String[] args) {
+        List<String> fruits = new ArrayList<>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Cherry");
+        System.out.println("Fruits List: " + fruits);
+    }
+}
+
+// Set example with HashSet
+import java.util.HashSet;
+import java.util.Set;
+
+public class SetDemo {
+    public static void main(String[] args) {
+        Set<Integer> numbers = new HashSet<>();
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(10); // Duplicate values are not allowed
+        System.out.println("Numbers Set: " + numbers);
+    }
+}
+
+// Map example with HashMap
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapDemo {
+    public static void main(String[] args) {
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "One");
+        map.put(2, "Two");
+        map.put(3, "Three");
+        System.out.println("Map: " + map);
+    }
+}</code></pre>
+    </div>
+
+    <h3>Sorting and Thread-Safe Collections</h3>
+    <p>
+      You can sort collections using <code>Comparable</code> and <code>Comparator</code>. Additionally, Java provides thread-safe collections like <code>ConcurrentHashMap</code> and <code>CopyOnWriteArrayList</code>.
+    </p>
+    <div class="example">
+      <pre><code>// Example: Sorting using Comparable and Comparator
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+class Student implements Comparable<Student> {
+    String name;
+    int score;
+    
+    Student(String name, int score) {
+        this.name = name;
+        this.score = score;
+    }
+    
+    // Natural ordering by score
+    public int compareTo(Student s) {
+        return this.score - s.score;
+    }
+    
+    public String toString() {
+        return name + ":" + score;
+    }
+}
+
+public class SortingDemo {
+    public static void main(String[] args) {
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(new Student("Alice", 88));
+        students.add(new Student("Bob", 95));
+        students.add(new Student("Charlie", 82));
+        
+        // Sorting by natural order (score)
+        Collections.sort(students);
+        System.out.println("Sorted by score: " + students);
+        
+        // Sorting by name using Comparator
+        Collections.sort(students, new Comparator<Student>() {
+            public int compare(Student s1, Student s2) {
+                return s1.name.compareTo(s2.name);
+            }
+        });
+        System.out.println("Sorted by name: " + students);
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <!-- Exception Handling -->
+  <div class="section" id="exceptions">
+    <h2>Exception Handling</h2>
+    <p>
+      Exception handling in Java ensures your program can gracefully recover from runtime errors. It uses constructs like <code>try-catch-finally</code> blocks, <code>throw</code>, and <code>throws</code> keywords.
+    </p>
+    <div class="example">
+      <pre><code>// Basic exception handling example
+public class ExceptionDemo {
+    public static void main(String[] args) {
+        try {
+            int result = divide(10, 0);
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero!");
+        } finally {
+            System.out.println("Cleanup operations if necessary.");
+        }
+    }
+    
+    public static int divide(int a, int b) {
+        return a / b;
+    }
+}</code></pre>
+    </div>
+    <p>
+      You can also create custom exceptions by extending the <code>Exception</code> class.
+    </p>
+    <div class="example">
+      <pre><code>// Custom exception example
+class InsufficientFundsException extends Exception {
+    public InsufficientFundsException(String message) {
+        super(message);
+    }
+}
+
+class BankAccount {
+    double balance;
+    
+    BankAccount(double balance) {
+        this.balance = balance;
+    }
+    
+    public void withdraw(double amount) throws InsufficientFundsException {
+        if(amount > balance) {
+            throw new InsufficientFundsException("Not enough funds. Available balance: " + balance);
+        }
+        balance -= amount;
+        System.out.println("Withdrawal successful. New balance: " + balance);
+    }
+    
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount(1000);
+        try {
+            account.withdraw(1500);
+        } catch (InsufficientFundsException e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <!-- Multithreading & Concurrency -->
+  <div class="section" id="multithreading">
+    <h2>Multithreading &amp; Concurrency</h2>
+    <p>
+      Java enables concurrent programming with threads, synchronization, and higher-level concurrency utilities.
+    </p>
+    <h3>Creating Threads</h3>
+    <div class="example">
+      <pre><code>// Creating a thread by extending the Thread class
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread " + Thread.currentThread().getId() + " is running.");
+    }
+}
+
+public class ThreadExample {
+    public static void main(String[] args) {
+        MyThread t1 = new MyThread();
+        t1.start();
+    }
+}</code></pre>
+    </div>
+    <div class="example">
+      <pre><code>// Creating a thread by implementing Runnable
+class RunnableTask implements Runnable {
+    public void run() {
+        System.out.println("Runnable thread " + Thread.currentThread().getId() + " is running.");
+    }
+}
+
+public class RunnableExample {
+    public static void main(String[] args) {
+        Thread t = new Thread(new RunnableTask());
+        t.start();
+    }
+}</code></pre>
+    </div>
+    <h3>Synchronization &amp; Locks</h3>
+    <p>
+      To avoid concurrent modification issues, use the <code>synchronized</code> keyword or higher-level constructs like <code>ReentrantLock</code>.
+    </p>
+    <div class="example">
+      <pre><code>// Synchronized method example
+class Counter {
+    private int count = 0;
+    
+    public synchronized void increment() {
+        count++;
+    }
+    
+    public int getCount() {
+        return count;
+    }
+}
+
+public class SyncDemo {
+    public static void main(String[] args) throws InterruptedException {
+        Counter counter = new Counter();
+        Thread t1 = new Thread(() -> {
+            for (int i = 0; i < 1000; i++) counter.increment();
+        });
+        Thread t2 = new Thread(() -> {
+            for (int i = 0; i < 1000; i++) counter.increment();
+        });
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
+        System.out.println("Final count: " + counter.getCount());
+    }
+}</code></pre>
+    </div>
+    <h3>Executors and Concurrency Utilities</h3>
+    <p>
+      The <code>ExecutorService</code> framework simplifies thread management by providing a thread pool.
+    </p>
+    <div class="example">
+      <pre><code>import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ExecutorDemo {
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+        for (int i = 0; i < 5; i++) {
+            executor.execute(() -> {
+                System.out.println("Task executed by " + Thread.currentThread().getName());
+            });
+        }
+        executor.shutdown();
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <!-- Java 8+ Features -->
+  <div class="section" id="java8">
+    <h2>Java 8+ Features</h2>
+    <p>
+      Java 8 and later versions introduced many new features that simplify code and enhance productivity.
+    </p>
+    <h3>Lambda Expressions and Functional Interfaces</h3>
+    <div class="example">
+      <pre><code>// Lambda expression example
+import java.util.Arrays;
+import java.util.List;
+
+public class LambdaDemo {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+        names.forEach(name -> System.out.println("Hello, " + name));
+    }
+}</code></pre>
+    </div>
+    <h3>Streams API</h3>
+    <div class="example">
+      <pre><code>// Using Streams to filter and process collections
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class StreamDemo {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+        List<Integer> evenNumbers = numbers.stream()
+            .filter(n -> n % 2 == 0)
+            .collect(Collectors.toList());
+        System.out.println("Even Numbers: " + evenNumbers);
+    }
+}</code></pre>
+    </div>
+    <h3>Optional and Default Methods in Interfaces</h3>
+    <div class="example">
+      <pre><code>// Optional usage to avoid null pointer exceptions
+import java.util.Optional;
+
+public class OptionalDemo {
+    public static void main(String[] args) {
+        Optional<String> name = Optional.of("Java");
+        name.ifPresent(n -> System.out.println("Hello " + n));
+        
+        Optional<String> empty = Optional.empty();
+        System.out.println("Empty Optional: " + empty.orElse("No value present"));
+    }
+}
+
+// Default methods in interfaces
+interface Greeting {
+    default void sayHello() {
+        System.out.println("Hello from default method!");
+    }
+}
+
+class Greeter implements Greeting {
+    // Inherits sayHello() by default
+}
+
+public class InterfaceDemo {
+    public static void main(String[] args) {
+        Greeter greeter = new Greeter();
+        greeter.sayHello();
+    }
+}</code></pre>
+    </div>
+  </div>
+
+  <!-- JVM Internals -->
+  <div class="section" id="jvm">
+    <h2>JVM Internals</h2>
+    <p>
+      Understanding the internals of the Java Virtual Machine (JVM) helps in optimizing and troubleshooting applications.
+    </p>
+    <h3>JVM Architecture</h3>
+    <p>
+      The JVM consists of several components:
+    </p>
+    <ul>
+      <li><strong>Class Loader:</strong> Loads classes into memory.</li>
+      <li><strong>Heap:</strong> Where objects are stored.</li>
+      <li><strong>Stack:</strong> Holds local variables and function call details.</li>
+      <li><strong>Garbage Collector (GC):</strong> Automatically manages memory by removing unused objects.</li>
+    </ul>
+    <h3>Garbage Collection and JIT Compiler</h3>
+    <p>
+      Java offers several GC algorithms (like G1GC and ZGC) to optimize performance. The Just-In-Time (JIT) compiler converts bytecode to native code during runtime.
+    </p>
+    <div class="example">
+      <pre><code>// While you won't see direct code examples for GC or JIT, understanding tools like VisualVM can help profile memory usage and detect leaks.
+      // For instance, running VisualVM on your application can show you heap usage, thread activity, and GC events.
+</code></pre>
+    </div>
+  </div>
+
+  <footer>
+    <p>Enhanced Core Java Revision Material – Keep this page handy for in-depth revision!</p>
+  </footer>
+</body>
+</html>

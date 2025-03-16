@@ -1,12 +1,13 @@
 import java.util.Scanner;
 
+
 public class Get {
 
   public static void main(String[] args) {
     int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     int mix[] = { 12, 2, 1, 8, 123, 90, 4, 23, 8, 4 };
-
-    Scanner scanner = new Scanner(System.in); // Create a Scanner object
+		
+		    Scanner scanner = new Scanner(System.in); // Create a Scanner object
     System.out.print("Enter an index to retrieve from the array: ");
     int num = scanner.nextInt(); // Read input from the user
 
